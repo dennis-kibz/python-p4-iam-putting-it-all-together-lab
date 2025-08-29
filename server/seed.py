@@ -34,6 +34,7 @@ with app.app_context():
             username=username,
             bio=fake.paragraph(nb_sentences=3),
             image_url=fake.url(),
+            email=fake.email()
         )
 
         user.password_hash = user.username + 'password'
@@ -50,7 +51,7 @@ with app.app_context():
         recipe = Recipe(
             title=fake.sentence(),
             instructions=instructions,
-            minutes_to_complete=randint(15,90),
+            # minutes_to_complete=randint(15,90),
         )
 
         recipe.user = rc(users)
